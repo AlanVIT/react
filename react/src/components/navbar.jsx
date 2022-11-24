@@ -1,5 +1,5 @@
 import React from "react";
-import cart from '../cart.png'
+import Cart from "./cart";
 
 const Navbar = () => {
     return (
@@ -32,9 +32,7 @@ const Navbar = () => {
             <a className="nav-link disabled">Disabled</a>
           </li>
           <li>
-            <div className="futureCart"> 
-              <img src={cart}/><p>0</p>
-            </div>
+            <Cart/>
           </li>
         </ul>
         <form className="d-flex" role="search">
