@@ -1,10 +1,11 @@
-import React from "react";
+import React from "react"
+import ItemList from "./itemList"
+import items from "../productos.json"
 
-const ItemListContainer = ({greeting}) =>{
-    return(
-        <div>
-            {greeting}
-        </div>
-    )
+const ItemListContainer = () =>{
+return(
+  <ItemList greeting={items}/>
+)
 }
-export default ItemListContainer;
+
+export default ItemListContainer

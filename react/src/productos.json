@@ -1,20 +1,20 @@
 [
-    {
-        "title":"x",
-        "price":"x",
-        "img":"x",
-        "owner":"x"
-    },
-    {
-        "title":"y",
-        "price":"y",
-        "img":"y",
-        "owner":"y"
-    },
-    {
-        "title":"x",
-        "price":"x",
-        "img":"x",
-        "owner":"x"
-    }
+  {
+        "index":0,
+        "title":"RTX 3090",
+        "price":100000,
+        "owner":"Alan vitas"
+  },
+  {
+        "index":1,
+        "title":"GTX 1100",
+        "price":20000,
+        "owner":"Alan vitas"
+  },
+  {
+        "index":2,
+        "title":"RTX 3060",
+        "price":50000,
+        "owner":"Alan vitas"
+  }
 ]
