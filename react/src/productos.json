@@ -3,18 +3,47 @@
         "index":0,
         "title":"RTX 3090",
         "price":100000,
+        "stock":10,
+        "category":"graficas",
         "owner":"Alan vitas"
   },
   {
         "index":1,
         "title":"GTX 1100",
         "price":20000,
+        "stock":10,
+        "category":"graficas",
         "owner":"Alan vitas"
   },
   {
         "index":2,
         "title":"RTX 3060",
         "price":50000,
+        "stock":10,
+        "category":"graficas",
         "owner":"Alan vitas"
-  }
+  },
+  {
+      "index":3,
+      "title":"Intel 9",
+      "price":5000,
+      "stock":10,
+      "category":"procesadores",
+      "owner":"Alan vitas"
+},
+{
+      "index":4,
+      "title":"Intel 7",
+      "price":50000,
+      "stock":10,
+      "category":"procesadores",
+      "owner":"Alan vitas"
+},  {
+      "index":5,
+      "title":"Ram 16gb",
+      "price":50000,
+      "stock":10,
+      "category":"ram",
+      "owner":"Alan vitas"
+}
 ]

@@ -1,27 +1,23 @@
 import React from "react";
-import items from "../productos.json"
+import { Link } from "react-router-dom";
+import ItemCount from "./itemCount";
 
-let arrayPrds = []
-let found = ""
 
-function addToCart(id) {
-  found = items.find(element => element.index === id);
-  arrayPrds.push(found)
-  console.table(arrayPrds)
-};
-
-const Item = ({title, price, owner, id}) => {
-
+const Item = ({title, price, owner, id, stock}) => {
   return(
-    <div id="cardStyle" className="card" >
+    <div id="cardStyle" className="card ">
     <div className="card-body">
-      <h2 className="card-title">{title}</h2>
-      <h4 className="card-text">{price}$</h4>
-      <p className="card-text">{owner}</p>
-      <button onClick={addToCart(id)} className="btn btn-primary">Agregar al carrito</button>
+      <Link to={"/productos/" + id} className="text-decoration-none text-reset">
+        <h2 className="card-title">{title}</h2>
+        <h4 className="card-text">{price}$</h4>
+        <p className="card-text">{owner}</p>
+      </Link>
+      <ItemCount id={id} stock={stock} />
+
     </div>
   </div>
   )
 }
 
 export default Item;
+
