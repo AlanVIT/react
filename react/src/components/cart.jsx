@@ -1,4 +1,3 @@
-import React from "react";
 import cartImg from '../cart.png'
 import items from "../productos.json"
 
@@ -7,16 +6,19 @@ import items from "../productos.json"
 // let cartLength = 0
 let arrayPrds = []
 
-// function CartLength() {
-//   const [length, setLength] = useState(0);
-
-//   useEffect(() => {
-//   length+=1
-// });
-// }
-
 
 const Cart = () => {
+  // const [length, setLength] = useState(0);
+
+  // useEffect(()=>{
+  //   const promesa = new Promise((resolve, reject)=>{
+  //     resolve()
+  //   })
+  //   promesa.then(length);{
+  //     setLength()
+  //   }
+  // })
+
     return(
         <div className="futureCart"> 
         <img id="cart" alt="image" src={cartImg}/><p id="numberCart" >{0}</p>
