@@ -1,24 +1,39 @@
 import React from "react";
 import { useState } from "react";
-import { addToCart} from "./cart";
+// import items from "../productos.json";
 
 
-const ItemCount = ({id ,stock}) =>{
+
+const ItemCount = ({itemStock, onAdd}) =>{
+    // console.log(itemStock)
     const [counter, setCounter] = useState(0)
+    const [stock, setStock] = useState(itemStock)
+    const [sold, setSold] = useState(false)
     const decrement = () =>{
-        if(counter!==0){
-        setCounter(counter-1)
+        if(counter > 1){
+            setCounter(counter - 1)
+        }
+        else{
+            alert("queres -1 productos?")
+        }
     }
-    else{alert("queres -1 productos?")}
-    } 
+
     const increment = () =>{
         if(counter < stock){
-        setCounter(counter+1)
+            setCounter(counter + 1)
+        }
+        else{
+            alert("No hay mas stock pa, espere un rato que recargamos")
+        }
     }
-    else{
-        alert("No hay mas stock pa, espere un rato que recargamos")
+
+    const addToCart = (quantity) => {
+        setCounter(0)
+        setStock(stock-quantity)
+        setSold(true)
+        onAdd()
     }
-    } 
+
     return(
         <div id="counter" className="btn-group" role="group" aria-label="Basic radio toggle button group">
             <span>
@@ -26,7 +41,7 @@ const ItemCount = ({id ,stock}) =>{
                 <button type="button" className="btn btn-primary">{counter}</button>
                 <button type="button" className="btn btn-primary" onClick={increment}>+</button>
                 <br />
-                <button onClick={() => addToCart(id, counter)} className="btn btn-primary">Agregar al carrito</button>
+                <button onClick={() => addToCart(counter)} className="btn btn-primary">Agregar al carrito</button>
             </span>
         </div>    )
 }
