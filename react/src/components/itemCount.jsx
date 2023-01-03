@@ -1,11 +1,10 @@
 import React from "react";
 import { useState } from "react";
-// import items from "../productos.json";
+import { Link } from "react-router-dom";
 
 
 
 const ItemCount = ({itemStock, onAdd}) =>{
-    // console.log(itemStock)
     const [counter, setCounter] = useState(0)
     const [stock, setStock] = useState(itemStock)
     const [sold, setSold] = useState(false)
@@ -31,7 +30,7 @@ const ItemCount = ({itemStock, onAdd}) =>{
         setCounter(0)
         setStock(stock-quantity)
         setSold(true)
-        onAdd()
+        onAdd(quantity)
     }
 
     return(
@@ -41,7 +40,9 @@ const ItemCount = ({itemStock, onAdd}) =>{
                 <button type="button" className="btn btn-primary">{counter}</button>
                 <button type="button" className="btn btn-primary" onClick={increment}>+</button>
                 <br />
-                <button onClick={() => addToCart(counter)} className="btn btn-primary">Agregar al carrito</button>
+                {sold?<Link to={"/cart"} className="btn btn-primary">terminar la compra</Link>: 
+                <button onClick={() => addToCart(counter)} className="btn btn-primary">Agregar al carrito</button>}
+                
             </span>
         </div>    )
 }

@@ -1,22 +1,25 @@
 import React from "react";
 import ItemCount from "./itemCount";
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { CartContext } from "./cartContext";
+
 
 
 const ItemDetail = ({item}) =>{
+    const {addItem} = useContext(CartContext)
+    const [stock, setStock] = useState(item.stock)
 
-    const [stock, setStock] = useState(0)
-
+    console.log(item.stock)
     const onAdd = (quantity) => {
-        setStock(stock-quantity) 
+        setStock(stock-quantity)
+        if(quantity > 0){
+        addItem(item, quantity)
+      }
     }
-
     useEffect(()=>{
         setStock(item.stock)    
     }, [item])
-
-    // console.warn(item)
-
     return(
         <div id="cardStyle" className="card">
             <div className="card-body">
