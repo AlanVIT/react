@@ -26,7 +26,6 @@ const ItemDetail = ({item}) =>{
                 <h2 className="card-title">{item.title}</h2>
                 <h4 className="card-text">{item.price}$</h4>
                 <p className="card-text">{item.owner}</p>
-                <ItemCount itemStock={item.stock} onAdd={onAdd}/>
             </div>
         </div>
     )

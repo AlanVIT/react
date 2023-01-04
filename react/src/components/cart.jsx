@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import { CartContext } from "./cartContext";
 import { Link } from "react-router-dom";
 import Delete from '../Delete.png'
+import CheckOut from "./checkOut";
 
 const Cart = () =>{
     const {cart, cartTotal, removeItem, priceTotal, clear, finish} = useContext(CartContext)
@@ -17,13 +18,7 @@ const Cart = () =>{
 
     return(
         <div className="container">
-                    <table className="table table-dark table-hover">
-                        <tbody>
-                                <tr><td scope="col" ><input type="text" id="1" required placeholder={"Nombre y apellido"}/></td></tr>
-                                <tr><td scope="col" ><input type="text" id="2" required placeholder={"Mail"}/></td></tr>
-                                <tr><td scope="col" ><input type="text" id="3" required placeholder={"Telefono"}/></td></tr>
-                        </tbody>
-                    </table>
+
                     <table className="table table-dark table-hover">
                         <thead>
                             <tr>
@@ -31,7 +26,7 @@ const Cart = () =>{
                             <th scope="col">Producto</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Precio</th>
-                            <th scope="col"><button className="btn btn-primary" onClick={()=>finish({"totalPrice":priceTotal(), "name":document.querySelector(`#1`).value, "mail":document.querySelector(`#2`).value, "tel":document.querySelector(`#3`).value})}>Terminar compra</button></th>
+                            <th scope="col"><Link to={"/checkOut"} className="btn btn-primary">Terminar compra</Link></th>
                             </tr>
                         </thead>
                         <tbody>
