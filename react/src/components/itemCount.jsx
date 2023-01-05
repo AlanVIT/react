@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const ItemCount = ({itemStock, onAdd}) =>{
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(1)
     const [stock, setStock] = useState(itemStock)
     const [sold, setSold] = useState(false)
     const decrement = () =>{

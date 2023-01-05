@@ -9,6 +9,7 @@ import ItemDetailContainer from './components/itemDetailContainer';
 import CartContextProvider from './components/cartContext';
 import ThankYou from './components/thankYou';
 import CheckOut from './components/checkOut';
+import Publish from "./components/publish"
 
 function App() {
   return(
@@ -24,7 +25,7 @@ function App() {
           <Route exact path={'/thank/:id'} element={<ThankYou/>}> </Route>
           <Route exact path={"/cart"} element={<Cart/> }/>
           <Route exact path={"/checkOut"} element={<CheckOut/> }/>
-          <Route exact path={"/publish"} element={<CheckOut/> }/>
+          <Route exact path={"/publish"} element={<Publish/> }/>
         </Routes>
       </BrowserRouter>
     </CartContextProvider>
