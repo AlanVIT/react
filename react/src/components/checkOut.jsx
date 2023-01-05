@@ -2,21 +2,37 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "./cartContext";
-import {addDoc, getFirestore, collection} from "firebase/firestore"
+import {addDoc, getFirestore, collection, updateDoc, doc, getDoc} from "firebase/firestore"
 
 
 const CheckOut = () => {
-    const {cart, priceTotal} = useContext(CartContext)
+    const db = getFirestore()
+
+    const {cart, priceTotal, clear} = useContext(CartContext)
     const [nombre, setNombre] = useState("")
     const [telefono, setTelefono] = useState("")
     const [email, setEmail] = useState("")
     const [orderId, setOrderId] = useState("")
 
+    const updateItem = () =>{
+        // const db = getFirestore()
+        cart.map((item)=>{
+            let producto = doc(db, "items", item.id)
+            getDoc(producto).then((snapshot)=>{
+                let datos_producto = snapshot.data()
+                let itemDoc = doc(db, "items", item.id)
+                updateDoc(itemDoc,{stock:datos_producto.stock - item.quantity})
+            })
+        
+
+        })
+    }
+
     const generarOrden = () => {
         const fecha = new Date()
         const orden = {
             buyer:  {name:nombre, phone:telefono, email:email},
-            items:  cart.map(item => ({id:item.id, title:item.title, price:item.price, quantity:item.quantity})),
+            items:  cart.map((item) => ({id:item.id, title:item.title, price:item.price, quantity:item.quantity})),
             total:  priceTotal(), 
             date:   `${fecha.getFullYear()}-${fecha.getMonth()}-${fecha.getDay()}`,
             orderId:orderId
@@ -26,8 +42,8 @@ const CheckOut = () => {
         addDoc(orderCollection, orden).then((snapshot)=>{
             setOrderId(snapshot.id)
         })
-    console.log(orden)
-
+        updateItem()
+        clear()
     }
     return(
         <form>

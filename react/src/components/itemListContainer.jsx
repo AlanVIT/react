@@ -1,6 +1,5 @@
 import React from "react"
 import ItemList from "./itemList"
-// import itemsData from "../productos.json"
 import { useState } from "react"
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
@@ -13,7 +12,16 @@ const ItemListContainer = () =>{
   useEffect(()=>{
     const db = getFirestore()
 
-    const itemCollection = id? query(collection(db, "items"), where("category", "===", id)) : collection(db, "items") 
+    const itemCollection = id? 
+    query(
+      collection(db, "items"),
+      where("category", "==", id), 
+      where("stock", ">", 0)
+    ) : 
+    query(
+      collection(db, "items"),
+      where("stock", ">", 0)
+    ) 
     getDocs(itemCollection).then((snapshot)=>{
       if(snapshot.size === 0 ){
         alert('no hay resultados')

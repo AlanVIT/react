@@ -23,7 +23,7 @@ const Navbar = () => {
             <Link to={"/"} className="nav-link active" aria-current="page">Home</Link>
           </li>
           <li className="nav-item">
-            <button id="publicar"  className="nav-link">publicar</button>
+            <Link id="publicar" to={"/publish"} className="nav-link">publicar</Link>
           </li>
           <li className="nav-item dropdown">
             <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">

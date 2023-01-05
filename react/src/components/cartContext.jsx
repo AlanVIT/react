@@ -9,11 +9,6 @@ const CartContextProvider = ({children}) =>{
         return cart.some(x => x.id === id)
     }
 
-    const finish = (orden) =>{
-        //mandar orden a firebase
-        console.log(orden)
-    }
-
     const addItem = (item, quantity) =>{
         if(isInCart(item.index)){
             let position = cart.findIndex(x => x.index === item.index)
@@ -47,7 +42,7 @@ const CartContextProvider = ({children}) =>{
     } 
 
     return (
-        <CartContext.Provider value={{priceTotal ,removeItem, addItem,clear, cartTotal,finish, cart}}>
+        <CartContext.Provider value={{priceTotal ,removeItem, addItem,clear, cartTotal, cart}}>
             {children} 
         </CartContext.Provider>
     )
